@@ -9,11 +9,11 @@
 - name: Push preseed file for debconf
   template:
     src=mysql_seed.j2
-    dest=/home/vagrant/mysql.seed
+    dest=/vagrant/tmp/mysql.seed
   when: mysqld_exists|failed
 
 - name: Preseed mysql file
-  command: /usr/bin/debconf-set-selections /home/vagrant/mysql.seed
+  command: /usr/bin/debconf-set-selections /vagrant/tmp/mysql.seed
   when: mysqld_exists|failed
 
 # 3) Install
@@ -26,7 +26,7 @@
 
 # 4) Cleanup
 - name: Delete mysql.seed file
-  command: /bin/rm /home/vagrant/mysql.seed
+  command: /bin/rm /vagrant/tmp/mysql.seed
   when: mysqld_exists|failed
 
 
@@ -34,7 +34,7 @@
 - name: Set my.cnf template
   template:
     src=my.cnf.j2
-    dest=/home/vagrant/mysql/my.cnf
+    dest=/vagrant/conf/mysql/my.cnf
     owner=vagrant mode=0644
   notify:
   - mysql-restart
