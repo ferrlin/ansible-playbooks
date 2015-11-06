@@ -9,7 +9,8 @@
 - name: Push preseed file for debconf
   template:
     src=mysql_seed.j2
-    dest=/root/mysql.seed
+    # dest=/root/mysql.seed
+    dest=/vagrant/mysql.seed
   when: mysqld_exists|failed
 
 - name: Preseed mysql file
@@ -26,7 +27,8 @@
 
 # 4) Cleanup
 - name: Delete mysql.seed file
-  command: /bin/rm /root/mysql.seed
+  # command: /bin/rm /root/mysql.seed
+  command: /bin/rm /vagrant/mysql.seed
   when: mysqld_exists|failed
 
 
