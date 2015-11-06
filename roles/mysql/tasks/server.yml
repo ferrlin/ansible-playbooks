@@ -35,7 +35,7 @@
   template:
     src=my.cnf.j2
     dest=/home/mysql/my.cnf
-    owner=root mode=0644
+    owner=vagrant mode=0644
   notify:
   - mysql-restart
 
