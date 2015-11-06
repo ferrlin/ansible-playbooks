@@ -6,7 +6,7 @@
 - name: Push default configuration template
   template:
     src=memcached.conf.j2
-    dest=/home/memcached.conf
+    dest=/home/vagrant/memcached.conf
     owner=vagrant group=vagrant mode=0644
   notify:
   - memcached-restart
