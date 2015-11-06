@@ -1,5 +1,6 @@
 ---
 - name: Install default package
+  sudo: yes
   apt: pkg=memcached state=present
 
 - name: Push default configuration template
