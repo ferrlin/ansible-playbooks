@@ -18,6 +18,7 @@
 
 # 3) Install
 - name: Install server
+  sudo: yes
   apt: pkg=mysql-server state=installed force=yes
   when: mysqld_exists|failed
 
