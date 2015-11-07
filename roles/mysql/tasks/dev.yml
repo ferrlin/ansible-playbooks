@@ -4,8 +4,7 @@
 - name: Dev | Config for easy access as user "{{ devuser }}"
   template:
     src=user_my.cnf.j2
-    # dest=/home/{{ devuser }}/.my.cnf
-    dest=/vagrant/.my.cnf
+    dest=/vagrant/conf/.my.cnf
     owner={{ devuser }} mode=0600
   when: devuser is defined
 
