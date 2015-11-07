@@ -36,7 +36,7 @@
 - name: Set my.cnf template
   template:
     src=my.cnf.j2
-    dest=/vagrant/conf/mysql/my.cnf
+    dest=/vagrant/conf/mysql.cnf
     owner=vagrant mode=0644
   notify:
   - mysql-restart
@@ -56,9 +56,11 @@
 - name: Remove the MySQL test database
   mysql_db: db=test state=absent login_user=root login_password={{ mysql_root_password }}
 
-# Make this generic next time.
 - name: Create a new database with the name 'happymelly'
   mysql_db: name=happymelly state=present
+
+- name: Create a new database user with name = 'melly' and password = 'shum' with all database privileges
+  mysql_user: name=melly password=shum priv=*.*:ALL state-present
 
 - name: Restore database backup to happymelly
   mysql_db: name=happymelly state=import target={{mysql_happymelly_bk_path}}.sql
