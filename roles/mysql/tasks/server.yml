@@ -43,6 +43,7 @@
 
 # Secure installation
 - name: Ensure python mysql is installed
+  sudo: yes
   apt: pkg=python-mysqldb state=installed force=yes
 
 - name: Remove empty password users
