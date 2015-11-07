@@ -13,6 +13,7 @@
   when: mysqld_exists|failed
 
 - name: Preseed mysql file
+  sudo: yes
   command: /usr/bin/debconf-set-selections /vagrant/tmp/mysql.seed
   when: mysqld_exists|failed
 
