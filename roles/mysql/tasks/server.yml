@@ -57,10 +57,10 @@
   mysql_db: db=test state=absent login_user=root login_password={{ mysql_root_password }}
 
 - name: Create a new database with the name 'happymelly'
-  mysql_db: name=happymelly state=present
+  mysql_db: name={{ ud_database }} state=present login_user=root login_password={{ mysql_root_password }}
 
 - name: Create a new database user with name = 'melly' and password = 'shum' with all database privileges
-  mysql_user: name=melly password=shum priv=*.*:ALL state-present
+  mysql_user: name={{ ud_username }} password={{ ud_password }} priv=*.*:ALL state-present login_user=root login_password={{ mysql_root_password }}
 
 - name: Restore database backup to happymelly
-  mysql_db: name=happymelly state=import target={{mysql_happymelly_bk_path}}.sql
+  mysql_db: name={{ ud_database }} state=import target={{mysql_happymelly_bk_path}}.sql login_user=root login_password={{ mysql_root_password }}
