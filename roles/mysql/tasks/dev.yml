@@ -9,4 +9,5 @@
   when: devuser is defined
 
 - name: Dev | Development tools for MySQL
+  sudo: yes
   apt: pkg=percona-toolkit state=present
