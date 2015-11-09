@@ -4,7 +4,7 @@ mysql_root_password: happymelly_pass
 mysql_bind_address: 127.0.0.1
 mysql_port: 3306
 mysql_max_allowed_packet: '128M'
-mysql_happymelly_bk_path: /vagrant/prod
+mysql_happymelly_bk_path: /vagrant/tweaked
 ud_database: happymelly
 ud_username: melly
 ud_password: shum
