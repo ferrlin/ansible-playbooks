@@ -1,8 +1,11 @@
 - name: mysql-start
+  sudo: yes
   service: name=mysql start=started
 
 - name: mysql-restart
+  sudo: yes
   service: name=mysql state=restarted
 
 - name: mysql-stop
+  sudo: yes
   service: name=mysql state=stopped
